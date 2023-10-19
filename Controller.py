@@ -1,45 +1,44 @@
 from Model import *
-import os   
 
 class ControllerAdicionarTarefa():
     def __init__(self, tarefa):
         self.tarefa = tarefa
-
-        if self.tarefa == " ":
-            print("Informe uma tarefa válida")
-        
-        else:
-            if TODO.AdicionarTarefa(self.tarefa) == True:
-                print("Tarefa Adicionada")
-                os.system("cls")
-
+    
+        try:
+            if self.tarefa == " " or self.tarefa == "":
+                print("Informe uma tarefa válida")
+            elif self.tarefa == int:
+                print("Informe uma tarefa válida")
             else:
-                print("Algum problema foi encontrado")
+                if TODO.AdicionarTarefa(self.tarefa) == True:
+                    print("A Tarefa foi Adicionada!")
+                else:
+                    print("Algum problema foi encontrado.")
+        except Exception as erro:
+            print("Erro:", erro._class.name_)
+
 
 class ControllerExcluirTarefa():
     def __init__(self, excluir):
-        self.excluir = excluir - 1
+        self.excluir = excluir - 1 
 
-        if TODO.ExcluirTarefa(self.excluir) == True:
-            print("Tarefa Excluída")
-            os.system("cls")
-        else:
-            print("Algum problema foi encontrado")
+        try:
+            if self.excluir >= 0 and self.excluir < len(TODO.ListarTarefas()):
+                tarefa_removida = TODO.ExcluirTarefa(self.excluir) 
+                if tarefa_removida:
+                    print(f"A Tarefa {tarefa_removida} foi excluída.")
+                else:
+                    print("Algum problema foi encontrado.")
+            else:
+                print("Índice inválido. Certifique-se que o índice existe.")
+        except Exception as erro:
+            print("Erro:", type(erro).__name__)
+
 
 class ControllerListarTarefa():
     def __init__(self):
-        ControllerLista = TODO.ListarTarefa()
+        ControllerLista = TODO.ListarTarefas()
         cont = 1
         for tarefas in ControllerLista:
-            print(f"{cont} - {tarefas}")
-            cont += 1  
-
-class DAOaddTarefa:
-    def __init__(self,TarefaAdicionada):
-        self.TarefaAdicionada = TarefaAdicionada
-    
-    if adicionarTarefa == True:
-        adicionarTarefa = TarefaAdicionada
-        arquivo = "teste.txt"
-        with open(arquivo, "w") as arquivo:
-            arquivo.write(TarefaAdicionada)
+            print(f"{cont} -- {tarefas}")
+            cont += 1
