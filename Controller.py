@@ -33,3 +33,13 @@ class ControllerListarTarefa():
         for tarefas in ControllerLista:
             print(f"{cont} - {tarefas}")
             cont += 1  
+
+class DAOaddTarefa:
+    def __init__(self,TarefaAdicionada):
+        self.TarefaAdicionada = TarefaAdicionada
+    
+    if adicionarTarefa == True:
+        adicionarTarefa = TarefaAdicionada
+        arquivo = "teste.txt"
+        with open(arquivo, "w") as arquivo:
+            arquivo.write(TarefaAdicionada)
