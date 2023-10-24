@@ -1,3 +1,5 @@
+#Métodos
+#Criação dos métodos que serão utilizados 
 from DAO import *
 
 dao = DAO("teste.txt")

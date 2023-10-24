@@ -1,5 +1,7 @@
+#Racíocinio Lógico
 from Model import *
 
+#Lógica da verificação onde se o input da tarefa está vazia ou não, e adiciona ou não a tarefa
 class ControllerAdicionarTarefa():
     def __init__(self, tarefa):
         self.tarefa = tarefa
@@ -17,7 +19,7 @@ class ControllerAdicionarTarefa():
         except Exception as erro:
             print("Erro:", erro._class.name_)
 
-
+#Lógica da exclusão da tarefa ao passar o índice da tarefa
 class ControllerExcluirTarefa():
     def __init__(self, excluir):
         self.excluir = excluir - 1 
@@ -34,7 +36,7 @@ class ControllerExcluirTarefa():
         except Exception as erro:
             print("Erro:", type(erro).__name__)
 
-
+#Lógica que lista a tarefa e adiciona o índice na lista
 class ControllerListarTarefa():
     def __init__(self):
         ControllerLista = TODO.ListarTarefas()
