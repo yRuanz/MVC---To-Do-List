@@ -44,3 +44,25 @@ class ControllerListarTarefa():
         for tarefas in ControllerLista:
             print(f"{cont} -- {tarefas}")
             cont += 1
+
+class Validacao():  
+    def __init__(self, id, ids_salvos):
+#Verifica se o número aleatório gerado já está salvo 
+        while True:
+            self.id = random.randint(1000, 9999)
+            if self.id not in self.ids_salvos:
+                True
+                break
+            else:
+                print("Esse ID já existe.")
+                break
+
+                Arquivo.write(f"{self.id} - \t{tarefa}\n")
+        
+            self.ids_salvos.append(self.id)
+
+        #Lista as tarefas atualizadas
+        def listar_tarefas(self):
+            with open(self.arquivo, 'r') as Arquivo:
+                tarefas = Arquivo.readlines()
+            return tarefas
