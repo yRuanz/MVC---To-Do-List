@@ -14,31 +14,47 @@ while sair == 0:
     print("")
     menu = int(input("QUAL OPÇÃO DESEJA > "))
 
-    match menu:
-        case 1:
-            os.system("cls")
-            tarefa = input("Adicione uma TAREFA >> ")
-            adicionarTarefa = ControllerAdicionarTarefa(tarefa)
-            os.system("pause")
-            os.system("cls")
+    try:
+        match menu:
+            case 1:
+                os.system("cls")
+                tarefa = input("Adicione uma TAREFA >> ")
+                adicionarTarefa = ControllerAdicionarTarefa(tarefa)
+                os.system("pause")
+                os.system("cls")
 
-        case 2:
-            os.system("cls")
-            listarTarefa = ControllerListarTarefa()
-            os.system("pause")
-            os.system("cls")
+            case 2:
+                os.system("cls")
+                listarTarefa = ControllerListarTarefa()
+                os.system("pause")
+                os.system("cls")
 
-        case 3:
-            os.system("cls")
-            listarTarefa = ControllerListarTarefa()
-            excluir = int(input("Qual o índice da tarefa que deseja excluir >> "))
-            excluirTarefa = ControllerExcluirTarefa(excluir)
-            os.system("pause")
-            os.system("cls")
+            case 3:
+                os.system("cls")
+                listarTarefa = ControllerListarTarefa()
+                alterar = int(input("Qual o índice da tarefa que deseja alterar >> "))
 
-        case 4:
-            sair = 1
-            os.system("cls")
+            case 4:
+                os.system("cls")
+                listarTarefa = ControllerListarTarefa()
+                concluir = int(input("Qual o índice da tarefa que deseja concluir >> "))
 
-        case _:
-            print("Opção Inválida.")
+            case 5:
+                os.system("cls")
+                listarTarefa = ControllerListarTarefa()
+                excluir = int(input("Qual o índice da tarefa que deseja excluir >> "))
+                excluirTarefa = ControllerExcluirTarefa(excluir)
+                os.system("pause")
+                os.system("cls")
+
+            case 6:
+                sair = 1
+                os.system("cls")
+
+            case _:
+                print("Opção Inválida.")
+    except Exception as erro:
+        print("Opção inválida.")
+        print("Erro:", erro.__class__.__name__)
+        os.system("pause")
+        os.system("cls")

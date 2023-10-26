@@ -1,12 +1,11 @@
-#Métodos
-#Criação dos métodos que serão utilizados 
 from DAO import *
 
-dao = DAO("teste.txt")
+dao = DAO("Tarefa.txt")
 
 class ToDo():
     def __init__(self):
         self.lista = []
+        
 
     def AdicionarTarefa(self, tarefa):
         dao.adicionar_tarefa(tarefa)
